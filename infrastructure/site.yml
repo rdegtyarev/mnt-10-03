@@ -1,0 +1,26 @@
+---
+- name: Add node-exporter
+  hosts: all
+  roles:
+    - node-exporter-role
+- name: Add Grafana
+  hosts: prometheus_grafana
+  roles:
+    - grafana-role
+- name: Add Prometheus
+  hosts: prometheus_grafana
+  roles:
+    - prometheus-role
+  handlers:
+  - name: restart prometheus
+    become: true
+    service:
+      name: prometheus
+      state: restarted
+  tasks:
+  - name: Configure prometheus
+    become: true
+    template:
+      src: templates/prometheus.yml.j2
+      dest: "/opt/prometheus/prometheus.yml"
+    notify: restart prometheus

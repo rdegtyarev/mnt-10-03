@@ -1,0 +1,13 @@
+---
+  - src: git@github.com:rdegtyarev/prometheus-role.git
+    scm: git
+    version: "1.0.7"
+    name: prometheus-role
+  - src: git@github.com:rdegtyarev/node-exporter-role.git
+    scm: git
+    version: "1.0.5"
+    name: node-exporter-role
+  - src: git@github.com:rdegtyarev/grafana-role.git
+    scm: git
+    version: "1.0.0"
+    name: grafana-role
