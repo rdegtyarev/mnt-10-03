@@ -20,7 +20,7 @@
 
 ## Обязательные задания
 
-### Задание 1
+## Задание 1
 Используя директорию [help](./help) внутри данного домашнего задания - запустите связку prometheus-grafana.
 
 Зайдите в веб-интерфейс графана, используя авторизационные данные, указанные в манифесте docker-compose.
@@ -28,6 +28,22 @@
 Подключите поднятый вами prometheus как источник данных.
 
 Решение домашнего задания - скриншот веб-интерфейса grafana со списком подключенных Datasource.
+
+### Решение
+- Используя Ansible связку Grafana-Prometeus-node_exporter на виртуальных машинах
+    - Плейбук 
+    - Роли:
+        - Grafana
+        - Prometheus
+        - node_exporter
+- Prometheus + Grafana + node_exporter (для мониторинга самого себя) установлены на одном хосте, на два дополнительных хоста установлены только node_exporter.
+- Конфиг Prometheus: ./infrasturcture/templates/prometheus.yml.j2, job собирают метрики с node_exporter c трех хостов (включая себя).
+- Скрин:
+![alt text](http://url/to/img.png)
+- Для удобства утановил дашборд Node Exporter Full https://grafana.com/grafana/dashboards/1860
+![alt text](http://url/to/img.png)
+
+---
 
 ## Задание 2
 Изучите самостоятельно ресурсы:
@@ -42,10 +58,31 @@
 
 Для решения данного ДЗ приведите promql запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
 
+### Решение
+
+- Утилизация CPU для nodeexporter (в процентах, 100-idle)
+    - 
+- CPULA 1/5/15
+    - node_load1{instance="$node",job="$job"}
+    - node_load5{instance="$node",job="$job"}
+    - node_load15{instance="$node",job="$job"}
+- Количество свободной оперативной памяти
+    - node_memory_MemFree_bytes{instance="$node",job="$job"}
+- Количество места на файловой системе
+    - всего: node_filesystem_size_bytes{device="/dev/vda2",fstype="ext4",instance="$node",job="$job",mountpoint="/"}
+    - свободно: node_filesystem_free_bytes{device="/dev/vda2",fstype="ext4",instance="$node",job="$job",mountpoint="/"}
+
+---
+
 ## Задание 3
 Создайте для каждой Dashboard подходящее правило alert (можно обратиться к первой лекции в блоке "Мониторинг").
 
 Для решения ДЗ - приведите скриншот вашей итоговой Dashboard.
+
+### Решение
+
+
+---
 
 ## Задание 4
 Сохраните ваш Dashboard.

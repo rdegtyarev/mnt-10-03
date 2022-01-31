@@ -12,15 +12,12 @@ rule_files:
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
-  - job_name: "prometheus"
+  - job_name: "prometheus_grafana"
     static_configs:
-      - targets: ["localhost:9090"]
-  - job_name: "self"
-    static_configs:
-      - targets: ['localhost:9100']
+      - targets: ['{{ hostvars['prometheus_grafana']['ansible_facts']['default_ipv4']['address'] }}:9100']
   - job_name: "node_1"
     static_configs:
-      - targets: ['10.128.0.21:9100']
+      - targets: ['{{ hostvars['node_1']['ansible_facts']['default_ipv4']['address'] }}:9100']
   - job_name: "node_2"
     static_configs:
-      - targets: ['10.128.0.7:9100']
+      - targets: ['{{ hostvars['node_2']['ansible_facts']['default_ipv4']['address'] }}:9100']
