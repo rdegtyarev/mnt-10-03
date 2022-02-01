@@ -72,6 +72,9 @@
     - всего: node_filesystem_size_bytes{device="/dev/vda2",fstype="ext4",instance="$node",job="$job",mountpoint="/"}
     - свободно: node_filesystem_free_bytes{device="/dev/vda2",fstype="ext4",instance="$node",job="$job",mountpoint="/"}
 
+Скрин:
+![03](https://github.com/rdegtyarev/mnt-10-03/blob/main/img/03.png)
+
 ---
 
 ## Задание 3
@@ -79,8 +82,11 @@
 
 Для решения ДЗ - приведите скриншот вашей итоговой Dashboard.
 
-### Решение
 
+### Решение
+![04](https://github.com/rdegtyarev/mnt-10-03/blob/main/img/4.png)  
+
+![05](https://github.com/rdegtyarev/mnt-10-03/blob/main/img/5.png)
 
 ---
 
@@ -93,10 +99,9 @@
 
 В решении задания - приведите листинг этого файла.
 
----
+### Решение
 
-### Как оформить ДЗ?
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
+JSON модель дашборда:  
+https://github.com/rdegtyarev/mnt-10-03/blob/main/dashboard.json
 
 ---
