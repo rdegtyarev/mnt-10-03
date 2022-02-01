@@ -31,17 +31,17 @@
 
 ### Решение
 - Используя Ansible связку Grafana-Prometeus-node_exporter на виртуальных машинах
-    - Плейбук 
+    - Плейбук [site.yml](./infractructure/site.yml)
     - Роли:
-        - Grafana
-        - Prometheus
-        - node_exporter
+        - Grafana https://github.com/rdegtyarev/grafana-role
+        - Prometheus https://github.com/rdegtyarev/prometheus-role
+        - node_exporter https://github.com/rdegtyarev/node-exporter-role
 - Prometheus + Grafana + node_exporter (для мониторинга самого себя) установлены на одном хосте, на два дополнительных хоста установлены только node_exporter.
 - Конфиг Prometheus: ./infrasturcture/templates/prometheus.yml.j2, job собирают метрики с node_exporter c трех хостов (включая себя).
 - Скрин:
-![alt text](http://url/to/img.png)
+![01](https://github.com/rdegtyarev/mnt-10-03/blob/main/img/01.png)
 - Для удобства утановил дашборд Node Exporter Full https://grafana.com/grafana/dashboards/1860
-![alt text](http://url/to/img.png)
+![02](https://github.com/rdegtyarev/mnt-10-03/blob/main/img/02.png)
 
 ---
 
