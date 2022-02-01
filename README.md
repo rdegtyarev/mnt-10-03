@@ -31,7 +31,7 @@
 
 ### Решение
 - Используя Ansible связку Grafana-Prometeus-node_exporter на виртуальных машинах
-    - Плейбук [site.yml](./infractructure/site.yml)
+    - Плейбук https://github.com/rdegtyarev/mnt-10-03/blob/main/infrastructure/site.yml
     - Роли:
         - Grafana https://github.com/rdegtyarev/grafana-role
         - Prometheus https://github.com/rdegtyarev/prometheus-role
