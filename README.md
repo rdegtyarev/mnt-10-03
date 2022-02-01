@@ -58,10 +58,10 @@
 
 Для решения данного ДЗ приведите promql запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
 
-### Решение
+### Решение  
 
 - Утилизация CPU для nodeexporter (в процентах, 100-idle)
-    - 
+    - 100 * (1 - avg by(instance)(irate(node_cpu_seconds_total{cpu="0",instance="$node",job="$job",mode="idle"}[5m])))
 - CPULA 1/5/15
     - node_load1{instance="$node",job="$job"}
     - node_load5{instance="$node",job="$job"}
